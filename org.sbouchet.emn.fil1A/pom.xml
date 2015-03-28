@@ -94,13 +94,10 @@
 						<goals>
 							<goal>site</goal>
 						</goals>
-						<phase>site-deploy</phase>
+						<phase>site</phase>
 						<configuration>
 							<server>github</server>
-							<!-- The commit message -->
 							<message>Updating site to github pages</message>
-							<!-- The location where the site is uploaded -->
-							<path>${site.path}</path>
 							<merge>override</merge>
 						</configuration>
 					</execution>
