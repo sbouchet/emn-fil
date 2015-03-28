@@ -5,16 +5,24 @@
 	<groupId>org.sbouchet</groupId>
 	<artifactId>org.sbouchet.emn.fil1a</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<modules>
-		<module>../org.sbouchet.emn.fil1A.java</module>
-		<module>../org.sbouchet.emn.fil1A.tests</module>
-	</modules>
+	<url>https://github.com/sbouchet/emn_fil1A</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>src</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -50,6 +58,7 @@
 				<version>3.3</version>
 				<executions>
 					<execution>
+						<id>pmd</id>
 						<phase>validate</phase>
 						<goals>
 							<goal>check</goal>
@@ -69,9 +78,38 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>findbugs</id>
+						<phase>validate</phase>
 						<goals>
 							<goal>check</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- Deploy the web site -->
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.9</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<!-- select the Maven phase in which the plugin will be executed -->
+						<phase>site-deploy</phase>
+						<configuration>
+							<!-- Plugin configuration ges here -->
+
+							<server>github</server>
+
+							<!-- The commit message -->
+							<message>Updating site to github pages</message>
+							<!-- The location where the site is uploaded -->
+							<path>${site.path}</path>
+							<!-- Use merge or override the content -->
+							<merge>true</merge>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
