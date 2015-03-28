@@ -53,7 +53,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.4</version>
 				<executions>
 					<execution>
 						<id>pmd</id>
@@ -94,19 +94,14 @@
 						<goals>
 							<goal>site</goal>
 						</goals>
-						<!-- select the Maven phase in which the plugin will be executed -->
 						<phase>site-deploy</phase>
 						<configuration>
-							<!-- Plugin configuration ges here -->
-
 							<server>github</server>
-
 							<!-- The commit message -->
 							<message>Updating site to github pages</message>
 							<!-- The location where the site is uploaded -->
 							<path>${site.path}</path>
-							<!-- Use merge or override the content -->
-							<merge>true</merge>
+							<merge>override</merge>
 						</configuration>
 					</execution>
 				</executions>
@@ -134,33 +129,19 @@
 				<version>2.4</version>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.3</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>pmd</report>
-							<report>cpd</report>
-						</reports>
-					</reportSet>
-				</reportSets>
+				<version>3.4</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>2.15</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>checkstyle</report>
-						</reports>
-					</reportSet>
-				</reportSets>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>2.5</version>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.1</version>
 			</plugin>
 		</plugins>
 	</reporting>
