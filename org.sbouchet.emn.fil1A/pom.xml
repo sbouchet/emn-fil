@@ -113,11 +113,22 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<!-- Build an executable JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.sbouchet.emn.fil1A.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<reporting>
-		<excludeDefaults>true</excludeDefaults>
-		<outputDirectory>${project.build.directory}/site</outputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -141,7 +152,7 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>2.13</version>
 				<configuration>
-					<configLocation>https://github.com/sbouchet/emn_fil1A/blob/master/org.sbouchet.emn.fil1A.maven/configs/checkstyle.xml</configLocation>
+					<configLocation>http://github.com/sbouchet/emn_fil1A/blob/master/org.sbouchet.emn.fil1A/configs/checkstyle.xml</configLocation>
 				</configuration>
 			</plugin>
 			<plugin>
