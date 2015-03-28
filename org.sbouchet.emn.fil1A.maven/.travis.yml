@@ -1,0 +1,2 @@
+language: java
+script: cd org.sbouchet.emn.fil1A.maven && mvn package
