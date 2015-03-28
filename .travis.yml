@@ -1,2 +1,2 @@
 language: java
-script: cd org.sbouchet.emn.fil1A && mvn clean package && mvn site-deploy
+script: cd org.sbouchet.emn.fil1A && mvn clean package site

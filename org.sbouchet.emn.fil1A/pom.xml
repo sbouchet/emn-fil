@@ -94,14 +94,15 @@
 						<goals>
 							<goal>site</goal>
 						</goals>
-						<phase>site-deploy</phase>
+						<phase>site</phase>
 						<configuration>
-							<server>github</server>
-							<!-- The commit message -->
+							<oauth2Token>c81d612b59d6e9fa5339a66ce93c188a0291be37</oauth2Token>
 							<message>Updating site to github pages</message>
-							<!-- The location where the site is uploaded -->
-							<path>${site.path}</path>
 							<merge>override</merge>
+							<path>${site.path}</path>
+							<repositoryOwner>sbouchet</repositoryOwner>
+							<repositoryName>emn_fil1A</repositoryName>
+							<project.url>https://github.com/sbouchet/emn_fil1A.git</project.url>
 						</configuration>
 					</execution>
 				</executions>
@@ -151,7 +152,6 @@
 				<artifactId>maven-jxr-plugin</artifactId>
 				<version>2.5</version>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
