@@ -6,12 +6,19 @@
 	<artifactId>org.sbouchet.emn.fil1a</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
-	<url>https://github.com/sbouchet/emn_fil1A</url>
+	
+	<url>http://sbouchet.github.io/emn_fil1A</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<github.global.server>github</github.global.server>
 	</properties>
+
+	<scm>
+		<url>https://github.com/sbouchet/emn_fil1A</url>
+		<connection>scm:git:https://github.com/sbouchet/emn_fil1A.git</connection>
+		<developerConnection>scm:git:https://github.com/sbouchet/emn_fil1A.git</developerConnection>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -85,10 +92,27 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.4.201502262128</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<!-- Deploy the web site -->
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.9</version>
+				<version>0.11</version>
 				<executions>
 					<execution>
 						<goals>
@@ -98,11 +122,8 @@
 						<configuration>
 							<oauth2Token>c81d612b59d6e9fa5339a66ce93c188a0291be37</oauth2Token>
 							<message>Updating site to github pages</message>
-							<merge>override</merge>
-							<path>${site.path}</path>
 							<repositoryOwner>sbouchet</repositoryOwner>
 							<repositoryName>emn_fil1A</repositoryName>
-							<project.url>https://github.com/sbouchet/emn_fil1A.git</project.url>
 						</configuration>
 					</execution>
 				</executions>
@@ -153,10 +174,12 @@
 				<version>2.5</version>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.1</version>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.4.201502262128</version>
 			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId> 
+				<version>2.10.1</version> </plugin> -->
 		</plugins>
 	</reporting>
 </project>
