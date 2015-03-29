@@ -6,7 +6,7 @@
 	<artifactId>org.sbouchet.emn.fil1a</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	
+
 	<url>http://sbouchet.github.io/emn_fil1A</url>
 
 	<properties>
@@ -121,6 +121,9 @@
 						<phase>site</phase>
 						<configuration>
 							<oauth2Token>c81d612b59d6e9fa5339a66ce93c188a0291be37</oauth2Token>
+							<includes>
+								<include>**/*</include>
+							</includes>
 							<message>Updating site to github pages</message>
 							<repositoryOwner>sbouchet</repositoryOwner>
 							<repositoryName>emn_fil1A</repositoryName>
