@@ -5,6 +5,6 @@
 <mapEntry key="JAVA_HOME" value="C:\Program Files\Java\jdk1.7.0_75"/>
 </mapAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Dev\Maven\apache-maven-3.0.5\bin\mvn.bat"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-s settings.xml site"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="site"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/org.sbouchet.emn.fil1A}"/>
 </launchConfiguration>

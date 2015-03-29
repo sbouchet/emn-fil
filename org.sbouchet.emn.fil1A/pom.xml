@@ -96,11 +96,7 @@
 						</goals>
 						<phase>site</phase>
 						<configuration>
-<<<<<<< HEAD
 							<oauth2Token>c81d612b59d6e9fa5339a66ce93c188a0291be37</oauth2Token>
-=======
-							<server>github</server>
->>>>>>> branch 'master' of https://github.com/sbouchet/emn_fil1A.git
 							<message>Updating site to github pages</message>
 							<merge>override</merge>
 							<path>${site.path}</path>
