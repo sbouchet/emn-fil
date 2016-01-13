@@ -120,7 +120,7 @@
 						</goals>
 						<phase>site</phase>
 						<configuration>
-							<oauth2Token>c81d612b59d6e9fa5339a66ce93c188a0291be37</oauth2Token>
+							<oauth2Token>modify token access</oauth2Token>
 							<includes>
 								<include>**/*</include>
 							</includes>
