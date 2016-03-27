@@ -11,7 +11,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<github.global.server>github</github.global.server>
 	</properties>
 
 	<scm>
@@ -109,29 +108,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<!-- Deploy the web site -->
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.11</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>site</phase>
-						<configuration>
-							<oauth2Token>modify token access</oauth2Token>
-							<includes>
-								<include>**/*</include>
-							</includes>
-							<message>Updating site to github pages</message>
-							<repositoryOwner>sbouchet</repositoryOwner>
-							<repositoryName>emn_fil1A</repositoryName>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -181,8 +157,6 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.4.201502262128</version>
 			</plugin>
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId> 
-				<version>2.10.1</version> </plugin> -->
 		</plugins>
 	</reporting>
 </project>
