@@ -1,11 +1,15 @@
 image: maven:3-jdk-7
 
+cache:
+  paths:
+  - cache/.m2
+
 pages:
   script:
   - mkdir .tmpsite
   - cd org.sbouchet.emn.fil1A 
-  - mvn clean package site -DlocalRepository=/cache/.m2
-  - cp -r target/site ../.tmpsite
+  - mvn clean package site -DlocalRepository=../cache/.m2
+  - cp -r target/site/**/* ../.tmpsite
   - cd ..
   - mv .tmpsite site
   artifacts:
