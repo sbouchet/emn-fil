@@ -9,7 +9,7 @@ pages:
   - mkdir .tmpsite
   - cd org.sbouchet.emn.fil1A 
   - mvn clean package site -DlocalRepository=../cache/.m2
-  - cp -r target/site/**/* ../.tmpsite
+  - cp -r target/site/* ../.tmpsite
   - cd ..
   - mv .tmpsite site
   artifacts:
