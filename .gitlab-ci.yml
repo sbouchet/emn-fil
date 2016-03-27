@@ -1,5 +1,18 @@
 image: maven:3-jdk-7
 
-builds:
- script: cd org.sbouchet.emn.fil1A ; mvn clean package site   
+job1:
+  script: "cd org.sbouchet.emn.fil1A ; mvn clean package site "
+
+job2:
+  script: "cd org.sbouchet.emn.camix ; mvn clean verify site "
+
+pages:
+  script:
+  - mkdir .fil1A
+  - cp -r org.sbouchet.emn.fil1A/target .fil1A
+  - mv .fil1A fil1A
+  artifacts:
+    paths:
+    - fil1A
+
   
