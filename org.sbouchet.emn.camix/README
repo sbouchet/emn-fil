@@ -1,0 +1,205 @@
+Camix Java v3.0
+
+-----------
+Description
+-----------
+
+Camix : Logiciel serveur chat.
+
+v3.0 : 
+- configuration dans le répertoire config ;
+- communication avec le composant Felix (BufferedReader et BufferedWriter) ;
+- configuration JMeter avec exemples de plan de test et de plan de travail (répertoire jmeter) ;
+- classe TCPClient pour JMeter (avec gestion des retours à la ligne) ;
+- aucun test unitaire.
+
+
+-------------
+Collaboration
+-------------
+
+Felix v2.0
+
+-----------
+Utilisation
+-----------
+
+Avec make (utilisation du fichier Makefile) :
+---------------------------------------------
+
+make compile : Compilation des sources du projet (dans le répertoire build).
+
+make compile_jmeter : Compilation des sources pour JMeter (classe TCPClient).
+
+make launch : Lancement du programme.
+
+make documentation : Génération de la documentation javadoc (attention, avec certaines versions de javadoc les sources ne doivent pas être compilées pour que la génération de la documentation se passe correctement). La documentation est générée dans le répertoire doc du projet.
+
+make documentation_jmeter : Génération de la documentation javadoc du code pour JMeter (attention, avec certaines versions de javadoc les sources jmeter ne doivent pas être compilées pour que la génération de la documentation se passe correctement). La documentation est générée dans le répertoire jmeter/doc du projet.
+
+make clean : Nettoyage du projet (suppression du répertoire build).
+
+make mrproper : Nettoyage du projet (suppression du répertoire build et de la documentation).
+
+make new : Nettoyer, compiler.
+
+make clean_jmeter : Nettoyage du projet (suppression du répertoire build) du code pour JMeter.
+
+make mrproper_jmeter : Nettoyage du projet (suppression du répertoire build et de la documentation) du code pour JMeter.
+
+make new_jmeter : Nettoyer, compiler le code pour JMeter.
+
+make test_camix : Tests du programme Camix.
+
+make test_jmeter : Tests avec JMeter. IHM JMeter : Lancer -> Lancer.
+
+make test_jmeter_controleur : Tests avec JMeter (controleur). IHM JMeter : Lancer -> Démarrage distant.
+
+make test_jmeter_injecteur : Tests avec JMeter (injecteur).
+
+
+Voir le fichier Makefile pour plus de détails (configuration, lancement de tests plus ciblés).
+
+
+Avec ant (utilisation du fichier build.xml) :
+---------------------------------------------
+
+ant compile : Compilation des sources du projet (dans le répertoire build).
+
+ant compile_jmeter : Compilation des sources pour JMeter (classe TCPClient).
+
+ant launch : Lancement du programme.
+
+ant documentation : Génération de la documentation javadoc (attention, avec certaines versions de javadoc les sources ne doivent pas être compilées pour que la génération de la documentation se passe correctement). La documentation est générée dans le répertoire doc du projet.
+
+ant documentation_jmeter : Génération de la documentation javadoc du code pour JMeter (attention, avec certaines versions de javadoc les sources jmeter ne doivent pas être compilées pour que la génération de la documentation se passe correctement). La documentation est générée dans le répertoire jmeter/doc du projet.
+
+ant clean : Nettoyage du projet (suppression du répertoire build).
+
+ant mrproper : Nettoyage du projet (suppression du répertoire build et de la documentation).
+
+ant new : Nettoyer, compiler.
+
+ant clean_jmeter : Nettoyage du projet (suppression du répertoire build) du code pour JMeter.
+
+ant mrproper_jmeter : Nettoyage du projet (suppression du répertoire build et de la documentation) du code pour JMeter.
+
+ant new_jmeter : Nettoyer, compiler le code pour JMeter.
+
+ant test_camix : Tests du programme Camix.
+
+ant test_jmeter : Affiche la commande pour lancer les tests avec JMeter.
+
+Voir le fichier build.xml pour plus de détails (configuration, lancement de tests plus ciblés).
+
+
+Avec Eclipse :
+--------------
+
+Créer un nouveau projet java : 
+
+File -> New -> Java Project
+Project Name : Camix_Java
+Next >
+
+(onglet Source) 
+Create new source folder
+Folder name : test
+Finish
+
+(onglet Source) 
+Create new source folder
+Folder name : config
+Finish
+
+(onglet Source) 
+Create new source folder
+Folder name : jmeter/src
+Finish
+
+(onglet Libraries) 
+Add Library... -> JUnit
+Next >
+Sélectionner JUnit 4
+Finish
+
+(onglet Libraries) 
+Add External JARs... -> 
+<path>/<to>/jmeter/lib/ext/ApacheJMeter_tcp.jar (e.g.: /usr/share/jmeter/lib/ext/ApacheJMeter_tcp.jar)
+Valider
+
+(onglet Libraries) 
+Add External JARs... -> 
+<path>/<to>/easymock.jar (e.g.: /usr/share/java/easymock.jar)
+Valider
+
+Remarque : utiliser une version easymock >= 3.1.
+
+Remarque : l'utilisation de easymock peut nécessiter les librairies cglib (cglib-nodep) et objenesis :
+
+Add External JARs... -> 
+<path>/<to>/cglib-nodep.jar (e.g.: /usr/share/java/cglib-nodep.jar)
+Valider
+Add External JARs... -> 
+<path>/<to>/objenesis.jar (e.g.: /usr/share/java/objenesis.jar)
+Valider
+
+Finish
+
+
+Remarque : il peut être nécessaire de préciser que les sources du projet sont en UTF-8 (clic droit sur le projet -> Properties -> Resource -> Text file encoding : Other |UTF-8|.
+
+
+Importer les sources :
+
+(dans la vue Package Explorer)
+clique droit sur le projet
+Import...
+General > File System
+From directory : (Browse...) /<path>/<to>/<camix>/
+Valider
+(cliquer sur la flèche (ou le +) devant le répertoire du projet)
+sélectionner les répertoires "config", "jmeter", "src" et "test"
+Finish
+
+Attention : Modifier le fichier jmeter/user.properties avec : search_paths=./bin/
+
+
+Configuration de l'exécution du logiciel :
+
+Run -> Run Configurations...
+Java Application -> clique droit -> New
+Name : Camix Java
+Main class : (Search...) Camix - camix
+Apply
+Close
+
+Configuration de l'exécution des tests unitaires :
+
+Run -> Run Configurations...
+JUnit -> clique droit -> New
+Name : Camix Java Test
+sélectionner "Run a single test"
+Project : (Browse...) Camix_Java
+Test class : (Search...) CamixTestSuite - camix
+Test runner : JUnit 4
+Remarque : Si le message "Multiple launcher available" apparaît, 
+           clique sur "Select one..."
+           selectionner "Use configuration specific settings"
+           Launchers : Eclipse JUnit Launcher
+           OK
+Apply
+Close
+
+Configuration de l'exécution des tests avec JMeter :
+
+Run -> External Tools -> External Tools Configurations...
+Program -> clique droit -> New
+Name : Camix Java Test JMeter
+Location : <path>/<to>/jmeter (e.g.: /usr/bin/jmeter)
+Working directory : ${workspace_loc:/Camix_Java}
+Arguments : -q "${workspace_loc:/Camix_Java}/jmeter/user.properties" -j "${workspace_loc:/Camix_Java}/jmeter/jmeter.log" -t "${workspace_loc:/Camix_Java}/jmeter/plan_test.jmx"
+
+Remarque : l'utilisation de guillements pour encadrer les valeurs des options permet de se prémunir d'erreurs dûes à des espaces dans les noms de certains chemins.
+
+

@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+	"-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+	"http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<!--
+	Configuration Checkstyle pour Camix.
+
+	Version : 3.0
+	Auteur  : Matthias Brun	
+-->
+
+<module name="Checker">
+
+	<!-- Vérifie les commentaires Javadocs des packages (package-info.java).   -->
+	<!-- Voir : http://checkstyle.sourceforge.net/config_javadoc.html          -->
+	<module name="JavadocPackage">
+		<property name="severity" value="warning"/>
+	</module>
+
+	<!-- Vérifie la taille maximum des fichiers.                               -->
+	<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html            -->
+	<module name="FileLength">
+		<property name="severity" value="warning"/>
+	</module>
+
+	<!-- Vérifie la présence d'un caractère de fin de ligne en fin de fichier. -->
+	<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html             -->
+	<module name="NewlineAtEndOfFile">
+		<property name="severity" value="warning"/>
+		<property name="lineSeparator" value="lf"/>
+	</module>
+
+	<!-- Vérifie la présence des informations de traduction.                  -->
+	<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html            -->
+	<module name="Translation">
+		<property name="severity" value="warning"/>
+	</module>
+
+	<module name="TreeWalker">
+
+        	<!-- Vérifie les commentaires Javadoc des classes et des interfaces. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_javadoc.html    -->
+		<module name="JavadocType">
+			<property name="severity" value="warning"/>
+			<property name="authorFormat" value="[A-Z][a-z\.]* [A-Z][a-z]*"/>
+			<property name="versionFormat" value="\d\.\d"/>
+		</module>
+
+        	<!-- Vérifie les commentaires Javadoc des métodes.                -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_javadoc.html -->
+	        <module name="JavadocMethod">
+			<property name="severity" value="warning"/>
+		</module>
+
+        	<!-- Vérifie les commentaires Javadoc des attributs.              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_javadoc.html -->
+	        <module name="JavadocVariable">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie que les commentaires Javadoc sont bien formés.       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_javadoc.html -->
+		<module name="JavadocStyle">
+			<property name="severity" value="warning"/>
+			<property name="checkEmptyJavadoc" value="true"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a pas de block imbriqué.                  -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html -->
+		<module name="AvoidNestedBlocks">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a pas de block vide (sans instruction).   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html -->
+		<module name="EmptyBlock">
+			<property name="id" value="checkEmptyBlockStmt"/>
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie qu'il n'y a pas de block vide (sans texte - commentaire). -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html       -->
+		<module name="EmptyBlock">
+			<property name="id" value="checkEmptyBlockText"/>
+			<property name="severity" value="warning"/>
+			<property name="option" value="text"/>
+		</module>
+
+		<!-- Vérifie les accolades en début de ligne pour les classes,   -->
+		<!-- interfaces, contructeurs et méthodes.                       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html -->
+		<module name="LeftCurly">
+      			<property name="id" value="checkLeftCurlyBracePlacementNL"/>
+			<property name="severity" value="warning"/>
+			<property name="option" value="nl"/>
+			<property name="tokens" value="CLASS_DEF,CTOR_DEF,INTERFACE_DEF,METHOD_DEF"/>
+		</module>
+
+		<!-- Vérifie les accolades en fin de ligne pour les structures de contrôle. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html            -->
+		<module name="LeftCurly">
+			<property name="id" value="checkLeftCurlyBracePlacementEOL"/>
+			<property name="severity" value="warning"/>
+			<property name="tokens" value="LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_SWITCH,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE"/>
+		</module>
+
+		<!-- Vérifie les accolades sur une seule ligne pour try catch finally. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html       -->
+		<module name="RightCurly">
+			<property name="id" value="checkRightCurlyBracePlacementAlone"/>
+			<property name="severity" value="warning"/>
+			<property name="option" value="alone"/>
+			<property name="tokens" value="LITERAL_TRY,LITERAL_CATCH,LITERAL_FINALLY"/>
+		</module>
+
+		<!-- Vérifie les accolades sur la même ligne pour if else.       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html -->
+		<module name="RightCurly">
+			<property name="id" value="checkRightCurlyBracePlacementSame"/>
+			<property name="severity" value="warning"/>
+			<property name="tokens" value="LITERAL_IF,LITERAL_ELSE"/>
+		</module>
+
+		<!-- Vérifie la présence d'accolades autours des blocs.          -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_blocks.html -->
+		<module name="NeedBraces">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non-utilisation des imports avec étoiles.         -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="AvoidStarImport">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non utilisation d'import statique.                -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="AvoidStaticImport">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non-importation des packages sun (non standard).  -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="IllegalImport">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie l'ordre d'importation :                              -->
+		<!-- java(x) puis junit puis org puis camix.                      -->
+		<!-- Les imports de ces groupes sont séparés par une ligne vide.  -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="ImportOrder">
+			<property name="severity" value="warning"/>
+			<property name="option" value="above"/>
+			<property name="groups" value="/^javax?\./,junit,org,camix"/>
+			<property name="separated" value="true"/>
+		</module>
+
+		<!-- Vérifie la redondance d'import.                              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="RedundantImport">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les imports inutils.                                 -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_imports.html -->
+		<module name="UnusedImports">
+			<property name="severity" value="warning"/>
+			<property name="processJavadoc" value="true"/>
+		</module>
+
+		<!-- Vérifie que l'annotation @Override est présente si le tag       -->
+		<!-- javadoc {@inheritDoc} est utilisé dans le commentaire.          -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_annotation.html -->
+		<module name="MissingOverride">
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie qu'aucun warning n'est supprimé avec une annotation.    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_annotation.html -->
+		<module name="SuppressWarnings">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des types de paramètre d'une classe.       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="ClassTypeParameterName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des constantes.                            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="ConstantName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des variables locales finales.             -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="LocalFinalVariableName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des variables locales.                     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="LocalVariableName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des noms de membres.                       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="MemberName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des méthodes (par défaut le caracère       -->
+		<!-- undescore n'est pas toléré).                                -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="MethodName">
+			<property name="severity" value="warning"/>
+			<property name="id" value="methodNameWithoutUndescore"/>
+		</module>
+
+		<!-- Vérifie les noms des méthodes (avec tolérance du caractère  -->
+		<!-- undescore pour nommer des méthodes de test unitaire).       -->
+		<!-- Voir : methodNameWithoutUndescore et checkstyle-exclude.    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="MethodName">
+			<property name="severity" value="warning"/>
+			<property name="id" value="methodNameWithUndescore"/>
+			<property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+		</module>
+
+		<!-- Vérifie les noms des types de paramètres d'une méthode.     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="MethodTypeParameterName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des packages.                              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="PackageName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des paramètres.                            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="ParameterName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des variables statiques.                   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="StaticVariableName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms des types.                                 -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_naming.html -->
+		<module name="TypeName">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la taille des classes internes anonymes.           -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="AnonInnerLength">
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie le nombre d'instructions dans une méthodes.        -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="ExecutableStatementCount">
+			<property name="severity" value="warning"/>
+			<property name="tokens" value="INSTANCE_INIT,STATIC_INIT,METHOD_DEF,CTOR_DEF"/>
+		</module>
+		
+		<!-- Vérifie la taille des lignes.                              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="LineLength">
+			<property name="severity" value="warning"/>
+			<property name="max" value="130"/>
+			<property name="tabWidth" value="6"/>
+		</module>
+		
+		<!-- Vérifie la taille des méthodes.                            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="MethodLength">
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie le nombre de paramètres.                           -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="ParameterNumber">
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie le nombre de types externes.                       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="OuterTypeNumber">
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<!-- Vérifie le nombre de méthodes.                             -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_sizes.html -->
+		<module name="MethodCount">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces avec les caractères < et >.          -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="GenericWhitespace">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces pour les initialisations.            -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="EmptyForInitializerPad">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces pour les itérations.                 -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="EmptyForIteratorPad">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces pour les déclarations de méthodes.   -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="MethodParamPad">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie l'absence d'espace après certains caractères.    -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="NoWhitespaceAfter">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie l'absence d'espace avant certains caractères.    -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="NoWhitespaceBefore">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces avec les parenthèses.                -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="ParenPad">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les espaces avec le cast.                        -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="TypecastParenPad">
+			<property name="severity" value="warning"/>
+			<property name="tokens" value="RPAREN,TYPECAST"/>
+		</module>
+
+		<!-- Vérifie la présence d'espace après certains caractères.  -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="WhitespaceAfter">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la présence d'espace autours de motifs.          -->
+		<!-- http://checkstyle.sourceforge.net/config_whitespace.html -->
+		<module name="WhitespaceAround">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie que la définition de equal surcharge également      -->
+		<!-- equal equals(java.lang.Object).                             -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="CovariantEquals">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le "default" arrive en fin de "switch case".        -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="DefaultComesLast">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a pas d'instruction vide.                 -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="EmptyStatement">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie que l'utilisation de equals ne peut pas se faire    -->
+		<!-- sur un object null.                                         -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="EqualsAvoidNull">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la définition de equals s'accompagne d'une méthode  -->
+		<!-- de hachage.                                                 -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="EqualsHashCode">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'un commentaire "fall through" accompagne un case -->
+		<!-- sans "break".                                               -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="FallThrough">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie que les variables locales non modifiées sont        -->
+		<!-- déclarées finales.                                          -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="FinalLocalVariable">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les initialisations explicites inutiles.            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="ExplicitInitialization">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les "catch" illégaux.                               -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="IllegalCatch">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les "throws" illégaux.                              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="IllegalThrows">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les assignations internes.                          -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="InnerAssignment">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les noms de certaines méthodes de test unitaire.    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<!-- BUG : since 6.2  -->
+		<!-- module name="JUnitTestCase">
+			<property name="severity" value="warning"/>
+		</module -->
+
+		<!-- Vérifie la présence d'un constructeur dans chaque classe.   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="MissingCtor">
+			<property name="severity" value="warning"/>
+			<property name="id" value="missingConstructor"/>
+		</module>
+
+		<!-- Vérifie la présence de "default" dans un "switch/case".     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="MissingSwitchDefault">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non modification de varibales de controle de     -->
+		<!-- boucle "for" dans le corps de la boucle.                    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="ModifiedControlVariable">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le nombre d'imbrications de boucles "for" (max 1)   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="NestedForDepth">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le nombre d'imbrications de conditions "if" (max 2).-->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="NestedIfDepth">
+			<property name="severity" value="warning"/>
+			<property name="max" value="2"/>
+		</module>
+
+		<!-- Vérifie le nombre d'imbrications de blocs "try" (max 1).    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="NestedTryDepth">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non utilisation de nombres "magiques"            -->
+		<!-- (en dur dans le code).                                      -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="MagicNumber">
+			<property name="severity" value="warning"/>
+			<property name="id" value="magicNumber"/>
+		</module>
+
+		<!-- Vérifie la non surcharge de la méthode clone.               -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="NoClone">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non surcharge de la méthode finalize.            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="NoFinalizer">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la déclaration d'un package.                        -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="PackageDeclaration">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non assignation à des paramètres d'une méthode.  -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="ParameterAssignment">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non redondance de "throws".                      -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<!-- BUG : since 6.2  -->
+		<!-- module name="RedundantThrows">
+			<property name="severity" value="warning"/>
+			<property name="suppressLoadErrors" value="true"/>
+		</module -->
+
+		<!-- Vérifie la présence de "this".                              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="RequireThis">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le nombre de retour de méthode (max 1).             -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="ReturnCount">
+			<property name="severity" value="warning"/>
+			<property name="max" value="1"/>
+		</module>
+
+		<!-- Vérifie les expressions booléennes.                         -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="SimplifyBooleanExpression">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les retours booléens.                               -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="SimplifyBooleanReturn">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les égalités avec des litéraux.                     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="StringLiteralEquality">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie les parenthèses inutiles.                           -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="UnnecessaryParentheses">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a qu'une instruction par ligne.           -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html -->
+		<module name="OneStatementPerLine">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a pas de duplication de chaînes de caractères. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html      -->
+		<module name="MultipleStringLiterals">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'il n'y a pas de déclaration multiple de variables. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_coding.html   -->
+		<module name="MultipleVariableDeclarations">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'une classe avec constructeur privé est finale.   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="FinalClass">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'une classe utilitaire n'a pas de constructeur    -->
+		<!-- publique.                                                   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="HideUtilityClassConstructor">
+			<property name="severity" value="warning"/>
+			<property name="id" value="hideUtilityClassConstructor"/>
+		</module>
+
+		<!-- Vérifie qu'une interface contient au moins une méthode.     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="InterfaceIsType">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie qu'une exception a uniquement des champs fianux.    -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="MutableException">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le nombre d'exception "throws".                     -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="ThrowsCount">
+			<property name="severity" value="warning"/>
+			<property name="max" value="2"/>
+		</module>
+
+		<!-- Vérifie la visibilité des membres d'une classe.             -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_design.html -->
+		<module name="VisibilityModifier">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la complexité des expressions booléennes.            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="BooleanExpressionComplexity">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le couplage des classes (data abstraction coupling). -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="ClassDataAbstractionCoupling">
+			<property name="severity" value="warning"/>
+			<property name="id" value="classDataAbstractionCoupling"/>
+		</module>
+
+		<!-- Vérifie le nombres de classes en relation avec une classe.   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="ClassFanOutComplexity">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la complexité cyclomatique.                          -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="CyclomaticComplexity">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le nombre d'instructions consécutives non commentées -->
+		<!-- (Non Commenting Source Statements - NCSS).                   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="JavaNCSS">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la complexité N-Path.                                -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_metrics.html -->
+		<module name="NPathComplexity">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie le style de déclaration de tableaux.              -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html -->
+		<module name="ArrayTypeStyle">
+			<property name="severity" value="warning"/>
+			<message key="array.type.style" 
+			value="Les crochets du tableau ne sont pas placés au bon endroit (style Java)."/>
+		</module>
+
+		<!-- Vérifie l'indentation des fichiers.                       -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html -->
+		<module name="Indentation">
+			<property name="severity" value="warning"/>
+			<property name="basicOffset" value="8"/>
+			<property name="braceAdjustment" value="0"/>
+			<property name="caseIndent" value="8"/>
+			<property name="arrayInitIndent" value="8"/>
+			<property name="lineWrappingIndentation" value="1"/>
+		</module>
+
+		<!-- Vérifie que la déclaration d'un long commence par un L.   -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html -->
+		<module name="UpperEll">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la correspondance du nom du fichier et de la classe. -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_misc.html    -->
+		<module name="OuterTypeFilename">
+			<property name="severity" value="warning"/>
+		</module>
+
+		<!-- Vérifie la non utilisation de System.exit().                -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_regexp.html --> 
+		<module name="RegexpSinglelineJava">
+			<property name="severity" value="warning"/>
+			<property name="format" value="^.*System.exit(.*).*$"/>
+			<property name="message" value="Une sortie plus élégante est attendue."/>
+			<property name="ignoreComments" value="true"/>
+		</module>
+
+		<!-- Vérifie la non utilisation de printStackTrace().            -->
+		<!-- Voir : http://checkstyle.sourceforge.net/config_regexp.html --> 
+		<module name="RegexpSinglelineJava">
+			<property name="severity" value="warning"/>
+			<property name="format" value="^.*printStackTrace(.*).*$"/>
+			<property name="message" value="Un affichage plus élégant du problème est attendu."/>
+			<property name="ignoreComments" value="true"/>
+		</module>
+
+	</module>
+
+	<!-- Supprime certaines vérifications pour certains fichiers. -->
+	<!-- Voir : http://checkstyle.sourceforge.net/config.html     -->
+	<module name="SuppressionFilter">
+		<property name="file" value="checkstyle-exclude.xml"/>
+	</module>
+</module>
+
+
+

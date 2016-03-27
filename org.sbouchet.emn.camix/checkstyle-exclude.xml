@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<!--
+	Supprime certaines vérifications pour certains fichiers de Camix.
+
+	Version : 3.0
+	Auteur  : Matthias Brun	
+	
+	Voir    : checkstyle.xml (module "SuppressionFilter")
+-->
+<suppressions>
+	
+	<!-- Pas de vérification des commentaires Javadocs des packages (package-info.java) -->
+	<!-- dans le répertoire "test". Les packages de ce répertoire sont partagés avec    -->
+	<!-- le répertoire "src" (bonne pratique JUnit).                                    -->
+	<suppress checks="JavadocPackage" files="test[\\/]" /> 
+
+	<!-- Pas de vérification des commentaires Javadocs des packages (package-info.java) -->
+	<!-- dans le répertoire "jmeter/src/". Les packages de ce répertoire sont partagés  -->
+	<!-- avec le répertoire "src" (bonne pratique JUnit).                               -->
+	<suppress checks="JavadocPackage" files="jmeter[\\/]src[\\/]"/>
+
+	<!-- Pas de vérification des blocs vides (sans instruction) dans le répertoire "test". -->
+	<!-- Permissivité accordé au code de test. Néanmoins, les blocs vides d'instruction    -->
+	<!-- doivent au moins être commentés (cf. checkEmptyBlockText).                        -->
+	<suppress id="checkEmptyBlockStmt" files="test[\\/]" />
+
+	<!-- Pas de vérification des noms de méthodes sans undescore dans le répertoire "test".     -->
+	<!-- En d'autres termes, les undescore sont utilisables pour les méthodes de test unitaire. -->
+	<suppress id="methodNameWithoutUndescore" files="test[\\/]" />
+	
+	<!-- Pas de vérification de présence d'un contructeur le répertoire "test".           -->
+	<!-- En d'autres termes, il est toléré que les classes de suites de test ne précisent --> 
+	<!-- pas de constructeur (et s'appuient donc sur un constructeur publique par défaut). -->
+	<suppress id="missingConstructor" files="test[\\/]" />
+
+	<!-- Pas de vérification de présence d'un constructeur publique pour les tests.       -->
+	<!-- En d'autres termes, il est toléré que les classes de suites de test ne précisent --> 
+	<!-- pas de constructeur.                                                             -->
+	<suppress id="hideUtilityClassConstructor" files="test[\\/]" />
+
+</suppressions>
+
