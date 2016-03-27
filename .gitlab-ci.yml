@@ -1,10 +1,7 @@
 image: maven:3-jdk-7
 
-job1:
+build:
   script: "cd org.sbouchet.emn.fil1A ; mvn clean package site "
-
-job2:
-  script: "cd org.sbouchet.emn.camix ; mvn clean verify site "
 
 pages:
   script:
@@ -13,6 +10,4 @@ pages:
   - mv .fil1A fil1A
   artifacts:
     paths:
-    - fil1A
-
-  
+    - fil1A 
