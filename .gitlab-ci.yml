@@ -1,10 +1,5 @@
 image: maven:3-jdk-7
 
-build:
- script: cd org.sbouchet.emn.fil1A && mvn clean package site
- 
- pages:
-   artifacts:
-    paths:
-    - /builds/sbouchet/emn_fil1a/org.sbouchet.emn.fil1A/target/site
+builds:
+ script: cd org.sbouchet.emn.fil1A ; mvn clean package site   
   
