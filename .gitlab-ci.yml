@@ -5,7 +5,8 @@ pages:
   - mkdir .tmpsite
   - cd org.sbouchet.emn.fil1A 
   - mvn clean package site
-  - cp -r org.sbouchet.emn.fil1A/target .tmpsite
+  - cp -r target ../.tmpsite
+  - cd ..
   - mv .tmpsite site
   artifacts:
     paths:
