@@ -1,4 +1,7 @@
 image: maven:3-jdk-7
 
+cache:
+  directories:
+  - $HOME/.m2
 build:
-  script: "mvn package"
+ script: cd org.sbouchet.emn.fil1A && mvn clean package site
