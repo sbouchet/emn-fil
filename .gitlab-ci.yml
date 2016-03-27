@@ -11,7 +11,7 @@ pages:
   - mvn clean package site -DlocalRepository=../cache/.m2
   - cp -r target/site/* ../.tmpsite
   - cd ..
-  - mv .tmpsite site
+  - mv .tmpsite public
   artifacts:
     paths:
-    - site 
+    - public 
