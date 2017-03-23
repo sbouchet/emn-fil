@@ -9,6 +9,7 @@ pages:
   - mkdir .tmpsite
   - cd org.sbouchet.emn.fil1A 
   - mvn clean package site -DlocalRepository=../cache/.m2
+  - cat target/site/jacoco/index.html
   - cp -r target/site/* ../.tmpsite
   - cd ..
   - mv .tmpsite public
