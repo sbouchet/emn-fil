@@ -1,4 +1,4 @@
-Exemple Hello World pour les FIL 1A utilisant sonarcloud.io
+Exemple Hello World pour les FIL 1A 
 =========
-
-public page at: http://sbouchet.gitlab.io/emn_fil1A
+[![Build Status](https://travis-ci.org/sbouchet/emn-fil.svg?branch=master)](https://travis-ci.org/sbouchet/emn-fil)
+public page at: https://sbouchet.github.io/emn-fil/
