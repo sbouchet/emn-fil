@@ -1,1 +1,0 @@
-java -jar C:\Users\sbouche\git\emn_fil1A\org.sbouchet.emn.fil1A\target\org.sbouchet.emn.fil1a-1.0.0-SNAPSHOT.jar
