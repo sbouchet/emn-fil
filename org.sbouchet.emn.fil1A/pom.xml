@@ -4,7 +4,7 @@
 
 	<groupId>org.sbouchet</groupId>
 	<artifactId>org.sbouchet.emn.fil1a</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.2019-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<url>http://sbouchet.gitlab.io/emn_fil1A/</url>
