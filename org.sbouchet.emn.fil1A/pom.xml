@@ -9,8 +9,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
-        <url>https://gitlab.com/sbouchet/emn_fil1A</url>
-        <connection>scm:git:https://gitlab.com/sbouchet/emn_fil1A.git</connection>
+        <url>https://github.com/sbouchet/emn-fil</url>
+        <connection>scm:git:https://github.com/sbouchet/emn-fil</connection>
     </scm>
     <dependencies>
         <dependency>
