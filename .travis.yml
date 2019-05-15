@@ -2,3 +2,4 @@ language: java
 script:
  - cd org.sbouchet.emn.fil1A
  - mvn clean package sonar:sonar -Dsonar.organization=sbouchet-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+ - mvn site-deploy

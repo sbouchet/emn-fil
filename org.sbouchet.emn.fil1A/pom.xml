@@ -12,6 +12,13 @@
         <url>https://github.com/sbouchet/emn-fil</url>
         <connection>scm:git:https://github.com/sbouchet/emn-fil</connection>
     </scm>
+      <distributionManagement>
+    <site>
+      <id>github</id>
+      <name>GitHub Pages</name>
+      <url>https://sbouchet.github.io/emn-fil/</url>
+    </site>
+  </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -132,11 +139,11 @@
                 <goal>site</goal>
             </goals>
             <!-- select the Maven phase in which the plugin will be executed -->
-            <phase>site-deploy</phase>
+            <phase>site</phase>
             <configuration>
                 <!-- Plugin configuration goes here -->
 
-                <oauth2Token>a9661e4306677bec5dd55a6da01f626cab858e19</oauth2Token>
+                <oauth2Token>${env.GH_PAGES_TOKEN}</oauth2Token>
 
                 <!-- The commit message -->
                 <message>Deploy site</message>
@@ -168,7 +175,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.15</version>
+                <version>3.0.0</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
