@@ -10,15 +10,16 @@
     </properties>
     <scm>
         <url>https://github.com/sbouchet/emn-fil</url>
-        <connection>scm:git:https://github.com/sbouchet/emn-fil</connection>
+        <connection>scm:git:git@github.com:sbouchet/emn-fil.git</connection>
+        <developerConnection>scm:git:git@github.com:sbouchet/emn-fil.git</developerConnection>
     </scm>
-      <distributionManagement>
-    <site>
-      <id>github</id>
-      <name>GitHub Pages</name>
-      <url>https://sbouchet.github.io/emn-fil/</url>
-    </site>
-  </distributionManagement>
+    <distributionManagement>
+        <site>
+            <id>github</id>
+            <name>GitHub Pages</name>
+            <url>https://sbouchet.github.io/emn-fil/</url>
+        </site>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -129,32 +130,30 @@
                 </configuration>
             </plugin>
             <plugin>
-    <!-- Deploy the web site -->
-    <groupId>com.github.github</groupId>
-    <artifactId>site-maven-plugin</artifactId>
-    <version>0.9</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>site</goal>
-            </goals>
-            <!-- select the Maven phase in which the plugin will be executed -->
-            <phase>site</phase>
-            <configuration>
-                <!-- Plugin configuration goes here -->
-
-                <oauth2Token>${env.GH_PAGES_TOKEN}</oauth2Token>
-
-                <!-- The commit message -->
-                <message>Deploy site</message>
-                <!-- The location where the site is uploaded -->
-                <path>${site.path}</path>
-                <!-- Use merge or override the content -->
-                <merge>true</merge>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+                <!-- Deploy the web site -->
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.9</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <!-- select the Maven phase in which the plugin will be executed -->
+                        <phase>site</phase>
+                        <configuration>
+                            <!-- Plugin configuration goes here -->
+                            <oauth2Token>${env.GH_PAGES_TOKEN}</oauth2Token>
+                            <!-- The commit message -->
+                            <message>Deploy site</message>
+                            <!-- The location where the site is uploaded -->
+                            <path>${site.path}</path>
+                            <!-- Use merge or override the content -->
+                            <merge>true</merge>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <reporting>
