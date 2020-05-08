@@ -18,7 +18,7 @@ jobs:
       - name: Build with Maven
         run: |
           mvn clean verify --file org.sbouchet.emn.fil1A/pom.xml
-          mvn site
+          mvn site --file org.sbouchet.emn.fil1A/pom.xml
       
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v1
