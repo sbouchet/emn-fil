@@ -22,6 +22,7 @@ jobs:
       
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v1
+        if: success()
         with:
           target_branch: gh-pages
           build_dir: org.sbouchet.emn.fil1A/target/site
