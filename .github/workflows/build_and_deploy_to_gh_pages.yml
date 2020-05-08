@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build, Deploy to GH pages and analyze with Sonar
 on:
   push:
     branches:
@@ -18,13 +18,10 @@ jobs:
       - name: Build with Maven
         run: mvn clean verify --file org.sbouchet.emn.fil1A/pom.xml
       
-      - name: Deploy Maven Site to GitHub Pages
+      - name: Create Maven Site
         run: mvn site --file org.sbouchet.emn.fil1A/pom.xml
       
-      - name: Analyze with Sonar
-        run: mvn sonar:sonar -Dsonar.organization=sbouchet-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN --file org.sbouchet.emn.fil1A/pom.xml
-      
-      - name: Deploy
+      - name: Deploy to GH Pages
         uses: crazy-max/ghaction-github-pages@v1
         if: success()
         with:
@@ -32,3 +29,14 @@ jobs:
           build_dir: org.sbouchet.emn.fil1A/target/site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Analyze with Sonar
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: org.sbouchet.emn.fil1A
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            
+            # run: mvn sonar:sonar -Dsonar.organization=sbouchet-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN --file org.sbouchet.emn.fil1A/pom.xml
+      
