@@ -16,10 +16,13 @@ jobs:
           java-version: 1.8
     
       - name: Build with Maven
-        run: |
-          mvn clean verify --file org.sbouchet.emn.fil1A/pom.xml
-          mvn site --file org.sbouchet.emn.fil1A/pom.xml
-          mvn sonar:sonar -Dsonar.organization=sbouchet-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        run: mvn clean verify --file org.sbouchet.emn.fil1A/pom.xml
+      
+      - name: Deploy Maven Site to GitHub Pages
+        run: mvn site --file org.sbouchet.emn.fil1A/pom.xml
+      
+      - name: Analyze with Sonar
+          mvn sonar:sonar -Dsonar.organization=sbouchet-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN --file org.sbouchet.emn.fil1A/pom.xml
       
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v1
