@@ -50,6 +50,4 @@ jobs:
       - name: Analyze with Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          cd org.sbouchet.emn.fil1A
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsoner.organization=sbouchet -Dsonar.projectKey=sbouchet_emn-fil
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sbouchet_emn-fil -Dsonar.organization=sbouchet -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN --file org.sbouchet.emn.fil1A/pom.xml
