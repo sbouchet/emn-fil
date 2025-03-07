@@ -52,4 +52,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           cd org.sbouchet.emn.fil1A
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sbouchet_emn-fil
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsoner.organization=sbouchet -Dsonar.projectKey=sbouchet_emn-fil
